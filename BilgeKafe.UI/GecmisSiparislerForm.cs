@@ -16,7 +16,5 @@ namespace BilgeKafe.UI
         {
             InitializeComponent();
         }
-
-       
     }
 }

@@ -29,12 +29,10 @@ namespace BilgeKafe.UI
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.ürünlerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.geçmişSiparişlerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.tsmiUrunler = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiGecmisSiparisler = new System.Windows.Forms.ToolStripMenuItem();
+            this.lvwMasalar = new System.Windows.Forms.ListView();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -42,54 +40,48 @@ namespace BilgeKafe.UI
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ürünlerToolStripMenuItem,
-            this.geçmişSiparişlerToolStripMenuItem});
+            this.tsmiUrunler,
+            this.tsmiGecmisSiparisler});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(915, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(915, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // ürünlerToolStripMenuItem
+            // tsmiUrunler
             // 
-            this.ürünlerToolStripMenuItem.Name = "ürünlerToolStripMenuItem";
-            this.ürünlerToolStripMenuItem.Size = new System.Drawing.Size(71, 24);
-            this.ürünlerToolStripMenuItem.Text = "Ürünler";
+            this.tsmiUrunler.Name = "tsmiUrunler";
+            this.tsmiUrunler.Size = new System.Drawing.Size(71, 24);
+            this.tsmiUrunler.Text = "Ürünler";
             // 
-            // geçmişSiparişlerToolStripMenuItem
+            // tsmiGecmisSiparisler
             // 
-            this.geçmişSiparişlerToolStripMenuItem.Name = "geçmişSiparişlerToolStripMenuItem";
-            this.geçmişSiparişlerToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
-            this.geçmişSiparişlerToolStripMenuItem.Text = "Geçmiş Siparişler";
+            this.tsmiGecmisSiparisler.Name = "tsmiGecmisSiparisler";
+            this.tsmiGecmisSiparisler.Size = new System.Drawing.Size(136, 24);
+            this.tsmiGecmisSiparisler.Text = "Geçmiş Siparişler";
             // 
-            // contextMenuStrip1
+            // lvwMasalar
             // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // listView1
-            // 
-            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lvwMasalar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(12, 31);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(891, 499);
-            this.listView1.TabIndex = 2;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.lvwMasalar.HideSelection = false;
+            this.lvwMasalar.Location = new System.Drawing.Point(12, 31);
+            this.lvwMasalar.Name = "lvwMasalar";
+            this.lvwMasalar.Size = new System.Drawing.Size(891, 499);
+            this.lvwMasalar.TabIndex = 2;
+            this.lvwMasalar.UseCompatibleStateImageBehavior = false;
             // 
             // AnaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(915, 542);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.lvwMasalar);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "AnaForm";
-            this.Text = "AnaForm";
+            this.Text = "Bilge Kafe";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -100,9 +92,8 @@ namespace BilgeKafe.UI
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem ürünlerToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem geçmişSiparişlerToolStripMenuItem;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ToolStripMenuItem tsmiUrunler;
+        private System.Windows.Forms.ToolStripMenuItem tsmiGecmisSiparisler;
+        private System.Windows.Forms.ListView lvwMasalar;
     }
 }
