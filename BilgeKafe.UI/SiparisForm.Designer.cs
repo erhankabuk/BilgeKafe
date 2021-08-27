@@ -144,11 +144,11 @@ namespace BilgeKafe.UI
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(11, 115);
+            this.dataGridView1.Location = new System.Drawing.Point(11, 95);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(726, 537);
+            this.dataGridView1.Size = new System.Drawing.Size(726, 557);
             this.dataGridView1.TabIndex = 8;
             // 
             // label4
