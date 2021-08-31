@@ -32,7 +32,7 @@ namespace BilgeKafe.UI
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.tsmiUrunler = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiGecmisSiparisler = new System.Windows.Forms.ToolStripMenuItem();
-            this.lvwMasalar = new System.Windows.Forms.ListView();
+            this.lvmMasalar = new System.Windows.Forms.ListView();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,7 +44,7 @@ namespace BilgeKafe.UI
             this.tsmiGecmisSiparisler});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(915, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(915, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -60,24 +60,25 @@ namespace BilgeKafe.UI
             this.tsmiGecmisSiparisler.Size = new System.Drawing.Size(136, 24);
             this.tsmiGecmisSiparisler.Text = "Geçmiş Siparişler";
             // 
-            // lvwMasalar
+            // lvmMasalar
             // 
-            this.lvwMasalar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lvmMasalar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lvwMasalar.HideSelection = false;
-            this.lvwMasalar.Location = new System.Drawing.Point(12, 31);
-            this.lvwMasalar.Name = "lvwMasalar";
-            this.lvwMasalar.Size = new System.Drawing.Size(891, 499);
-            this.lvwMasalar.TabIndex = 2;
-            this.lvwMasalar.UseCompatibleStateImageBehavior = false;
+            this.lvmMasalar.HideSelection = false;
+            this.lvmMasalar.Location = new System.Drawing.Point(12, 31);
+            this.lvmMasalar.Name = "lvmMasalar";
+            this.lvmMasalar.Size = new System.Drawing.Size(891, 499);
+            this.lvmMasalar.TabIndex = 2;
+            this.lvmMasalar.UseCompatibleStateImageBehavior = false;
+            this.lvmMasalar.DoubleClick += new System.EventHandler(this.lvmMasalar_DoubleClick);
             // 
             // AnaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(915, 542);
-            this.Controls.Add(this.lvwMasalar);
+            this.Controls.Add(this.lvmMasalar);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "AnaForm";
@@ -94,6 +95,6 @@ namespace BilgeKafe.UI
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem tsmiUrunler;
         private System.Windows.Forms.ToolStripMenuItem tsmiGecmisSiparisler;
-        private System.Windows.Forms.ListView lvwMasalar;
+        private System.Windows.Forms.ListView lvmMasalar;
     }
 }

@@ -127,6 +127,7 @@ namespace BilgeKafe.UI
             this.btnDetayEkle.TabIndex = 6;
             this.btnDetayEkle.Text = "EKLE";
             this.btnDetayEkle.UseVisualStyleBackColor = true;
+            this.btnDetayEkle.Click += new System.EventHandler(this.btnDetayEkle_Click);
             // 
             // btnMasaTasi
             // 
@@ -141,12 +142,17 @@ namespace BilgeKafe.UI
             // 
             // dgwSiparisDetaylari
             // 
+            this.dgwSiparisDetaylari.AllowUserToAddRows = false;
+            this.dgwSiparisDetaylari.AllowUserToDeleteRows = false;
             this.dgwSiparisDetaylari.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgwSiparisDetaylari.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgwSiparisDetaylari.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgwSiparisDetaylari.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgwSiparisDetaylari.Location = new System.Drawing.Point(11, 95);
             this.dgwSiparisDetaylari.Name = "dgwSiparisDetaylari";
+            this.dgwSiparisDetaylari.ReadOnly = true;
             this.dgwSiparisDetaylari.RowHeadersWidth = 51;
             this.dgwSiparisDetaylari.RowTemplate.Height = 24;
             this.dgwSiparisDetaylari.Size = new System.Drawing.Size(578, 515);
