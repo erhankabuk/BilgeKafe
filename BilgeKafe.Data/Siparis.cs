@@ -21,7 +21,7 @@ namespace BilgeKafe.Data
         }
         */
         public DateTime? KapanisZamani { get; set; }
-        public List<SiparisDetay> SiparisDetaylar { get; set; }
+        public List<SiparisDetay> SiparisDetaylar { get; set; }=new List<SiparisDetay>();
         public string ToplamTutarTL { get; }
         public decimal ToplamTutar()
         {   /*
