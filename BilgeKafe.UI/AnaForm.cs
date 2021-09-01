@@ -23,9 +23,11 @@ namespace BilgeKafe.UI
 
         private void OrnekUrunleriOlustur()
         {
+            
             db.Urunler.Add(new Urun() { UrunAd = "Kola", BirimFiyat = 5.99m });
             db.Urunler.Add(new Urun() { UrunAd = "Ayran", BirimFiyat = 4.50m });
             db.Urunler.Add(new Urun() { UrunAd = "Çay", BirimFiyat = 2.99m });
+            
 
 
 
@@ -74,7 +76,7 @@ namespace BilgeKafe.UI
 
         private void tsmiUrunler_Click(object sender, EventArgs e)
         {
-            
+            new UrunlerForm(db).ShowDialog();
         }
 
         private void tsmiGecmisSiparisler_Click(object sender, EventArgs e)
