@@ -79,6 +79,7 @@ namespace BilgeKafe.UI
             txtUrunAd.Text = urun.UrunAd;
             nudBirimFiyat.Value = urun.BirimFiyat;
             btnUrunEkle.Text = "KAYDET";
+            btnIptal.Text = "İPTAL";
             btnIptal.Show();
             dgvUrunler.Enabled = false;
             txtUrunAd.Focus();
@@ -86,7 +87,20 @@ namespace BilgeKafe.UI
 
         private void btnIptal_Click(object sender, EventArgs e)
         {
-            FormuResetle();
+            if (btnIptal.Text == "SİL")
+            {
+                //txtUrunAd.Focus();
+                DialogResult dr = MessageBox.Show($"Seçili ürün silinecektir. Onaylıyor musunuz?", "Silme Onayı", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                if (dr == DialogResult.Yes)
+                {
+                    DataGridViewRow satir = dgvUrunler.SelectedRows[0];
+                    Urun urun = (Urun)satir.DataBoundItem;
+                    blUrunler.Remove(urun);
+                    blUrunler.ResetBindings();
+                }               
+            }
+            else if (btnIptal.Text == "İPTAL")
+                FormuResetle();
         }
 
         private void FormuResetle()
@@ -94,10 +108,22 @@ namespace BilgeKafe.UI
             txtUrunAd.Clear();
             nudBirimFiyat.Value = 0;
             btnUrunEkle.Text = "EKLE";
-            btnIptal.Hide();
+            btnIptal.Text = "SİL";
+            // btnIptal.Hide();
             dgvUrunler.Enabled = true;
             btnDuzenle.Enabled = true;
             txtUrunAd.Focus();
+        }
+
+        private void UrunlerForm_Shown(object sender, EventArgs e)
+        {
+            dgvUrunler.ClearSelection();
+            btnIptal.Enabled=false;
+        }
+
+        private void dgvUrunler_SelectionChanged(object sender, EventArgs e)
+        {
+            btnIptal.Enabled = true;
         }
     }
 }

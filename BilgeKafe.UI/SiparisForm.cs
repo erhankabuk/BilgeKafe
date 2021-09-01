@@ -27,7 +27,7 @@ namespace BilgeKafe.UI
             dgwSiparisDetaylari.DataSource = blSiparisDetaylar;
             UrunleriListele();
             MasaNoyuGunceller();
-            OdemeTutariniGuncelle();
+            
             blSiparisDetaylar.ResetBindings();
 
         }
@@ -72,12 +72,13 @@ namespace BilgeKafe.UI
                 Adet=adet
             };
             blSiparisDetaylar.Add(sd);
-            OdemeTutariniGuncelle();
+            
         }
 
         private void btnAnasayfayaDon_Click(object sender, EventArgs e)
         {
             Close();
+            
         }
 
         private void btnOdemeAl_Click(object sender, EventArgs e)
@@ -109,6 +110,5 @@ namespace BilgeKafe.UI
             Close();
 
         }
-
     }
 }

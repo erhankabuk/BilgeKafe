@@ -29,7 +29,7 @@ namespace BilgeKafe.UI
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtUrunAd = new System.Windows.Forms.TextBox();
@@ -51,7 +51,7 @@ namespace BilgeKafe.UI
             this.label1.Location = new System.Drawing.Point(7, 2);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(105, 29);
-            this.label1.TabIndex = 0;
+            this.label1.TabIndex = 6;
             this.label1.Text = "Ürün Adı";
             // 
             // label2
@@ -61,7 +61,7 @@ namespace BilgeKafe.UI
             this.label2.Location = new System.Drawing.Point(280, 2);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(161, 29);
-            this.label2.TabIndex = 1;
+            this.label2.TabIndex = 7;
             this.label2.Text = "Birim Fiyat (₺)";
             // 
             // txtUrunAd
@@ -70,7 +70,7 @@ namespace BilgeKafe.UI
             this.txtUrunAd.Location = new System.Drawing.Point(12, 34);
             this.txtUrunAd.Name = "txtUrunAd";
             this.txtUrunAd.Size = new System.Drawing.Size(240, 34);
-            this.txtUrunAd.TabIndex = 2;
+            this.txtUrunAd.TabIndex = 0;
             // 
             // nudBirimFiyat
             // 
@@ -79,7 +79,7 @@ namespace BilgeKafe.UI
             this.nudBirimFiyat.Location = new System.Drawing.Point(285, 34);
             this.nudBirimFiyat.Name = "nudBirimFiyat";
             this.nudBirimFiyat.Size = new System.Drawing.Size(160, 34);
-            this.nudBirimFiyat.TabIndex = 3;
+            this.nudBirimFiyat.TabIndex = 1;
             // 
             // btnUrunEkle
             // 
@@ -87,7 +87,7 @@ namespace BilgeKafe.UI
             this.btnUrunEkle.Location = new System.Drawing.Point(478, 34);
             this.btnUrunEkle.Name = "btnUrunEkle";
             this.btnUrunEkle.Size = new System.Drawing.Size(135, 34);
-            this.btnUrunEkle.TabIndex = 4;
+            this.btnUrunEkle.TabIndex = 2;
             this.btnUrunEkle.Text = "EKLE";
             this.btnUrunEkle.UseVisualStyleBackColor = true;
             this.btnUrunEkle.Click += new System.EventHandler(this.btnUrunEkle_Click);
@@ -114,6 +114,7 @@ namespace BilgeKafe.UI
             this.dgvUrunler.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUrunler.Size = new System.Drawing.Size(748, 387);
             this.dgvUrunler.TabIndex = 5;
+            this.dgvUrunler.SelectionChanged += new System.EventHandler(this.dgvUrunler_SelectionChanged);
             this.dgvUrunler.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgvUrunler_UserDeletingRow);
             // 
             // Column1
@@ -127,8 +128,8 @@ namespace BilgeKafe.UI
             // Column2
             // 
             this.Column2.DataPropertyName = "BirimFiyat";
-            dataGridViewCellStyle4.Format = "0.00₺";
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle7.Format = "0.00₺";
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle7;
             this.Column2.HeaderText = "Birim Fiyatı";
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
@@ -142,7 +143,7 @@ namespace BilgeKafe.UI
             this.btnDuzenle.Location = new System.Drawing.Point(12, 467);
             this.btnDuzenle.Name = "btnDuzenle";
             this.btnDuzenle.Size = new System.Drawing.Size(748, 53);
-            this.btnDuzenle.TabIndex = 6;
+            this.btnDuzenle.TabIndex = 4;
             this.btnDuzenle.Text = "SEÇİLİ ÜRÜNÜ DÜZENLE";
             this.btnDuzenle.UseVisualStyleBackColor = true;
             this.btnDuzenle.Click += new System.EventHandler(this.btnDuzenle_Click);
@@ -153,10 +154,9 @@ namespace BilgeKafe.UI
             this.btnIptal.Location = new System.Drawing.Point(625, 33);
             this.btnIptal.Name = "btnIptal";
             this.btnIptal.Size = new System.Drawing.Size(135, 34);
-            this.btnIptal.TabIndex = 7;
-            this.btnIptal.Text = "İPTAL";
+            this.btnIptal.TabIndex = 3;
+            this.btnIptal.Text = "SİL";
             this.btnIptal.UseVisualStyleBackColor = true;
-            this.btnIptal.Visible = false;
             this.btnIptal.Click += new System.EventHandler(this.btnIptal_Click);
             // 
             // UrunlerForm
@@ -174,6 +174,7 @@ namespace BilgeKafe.UI
             this.Controls.Add(this.label1);
             this.Name = "UrunlerForm";
             this.Text = "UrunlerForm";
+            this.Shown += new System.EventHandler(this.UrunlerForm_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.nudBirimFiyat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUrunler)).EndInit();
             this.ResumeLayout(false);

@@ -78,7 +78,6 @@ namespace BilgeKafe.UI
                 db.AktifSiparisler.Add(siparis);
             }
 
-
             SiparisForm frmSiparis = new SiparisForm(db, siparis);
             frmSiparis.ShowDialog();
             if (siparis.Durum != SiparisDurum.Aktif)
