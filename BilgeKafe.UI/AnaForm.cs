@@ -38,7 +38,7 @@ namespace BilgeKafe.UI
             imageList.Images.Add("dolu", Resources.dolu);
             imageList.ImageSize = new Size(64, 64);
             lvmMasalar.LargeImageList = imageList; 
-
+            
             for (int i = 1; i <= db.MasaAdet; i++)
             {
                 ListViewItem lvi = new ListViewItem($"Masa {i}");
@@ -65,7 +65,22 @@ namespace BilgeKafe.UI
 
             SiparisForm frmSiparis = new SiparisForm(db, siparis);
             frmSiparis.ShowDialog();
+            if (siparis.Durum!=SiparisDurum.Aktif)
+            {
+                lvi.ImageKey = "bos";//15:14 saatinde anlatıldı oradan bak
+            }
            
+        }
+
+        private void tsmiUrunler_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void tsmiGecmisSiparisler_Click(object sender, EventArgs e)
+        {
+            new GecmisSiparislerForm(db).ShowDialog();
+
         }
     }
 }
