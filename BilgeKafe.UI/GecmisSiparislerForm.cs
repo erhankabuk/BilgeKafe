@@ -14,19 +14,18 @@ namespace BilgeKafe.UI
     public partial class GecmisSiparislerForm : Form
     {
         private readonly KafeVeri db;
-        //private readonly KafeVeri db;
         public GecmisSiparislerForm(KafeVeri db)
         {
             this.db = db;
             InitializeComponent();
             dgvSiparisler.AutoGenerateColumns = false;
             dgvSiparisDetaylari.AutoGenerateColumns = false;
-            dgvSiparisler.DataSource =  db.GecmisSiparisler;         
+            dgvSiparisler.DataSource = db.GecmisSiparisler;
         }
 
         private void dgvSiparisler_SelectionChanged(object sender, EventArgs e)
         {
-            if (dgvSiparisler.SelectedRows.Count!=1)
+            if (dgvSiparisler.SelectedRows.Count != 1)
             {
                 dgvSiparisDetaylari.DataSource = null;
             }
@@ -37,11 +36,9 @@ namespace BilgeKafe.UI
                 dgvSiparisDetaylari.DataSource = siparis.SiparisDetaylar;
             }
         }
-
         private void GecmisSiparislerForm_Shown(object sender, EventArgs e)
         {
             dgvSiparisler.ClearSelection();
-            
         }
     }
 }

@@ -20,7 +20,6 @@ namespace BilgeKafe.UI
         public AnaForm()
         {
             VerileriOku();
-            // OrnekUrunleriOlustur();
             InitializeComponent();
             MasalariOlustur();
         }
@@ -37,14 +36,7 @@ namespace BilgeKafe.UI
                 throw;
             }
         }
-        /*
-        private void OrnekUrunleriOlustur()
-        {
-            db.Urunler.Add(new Urun() { UrunAd = "Kola", BirimFiyat = 5.99m });
-            db.Urunler.Add(new Urun() { UrunAd = "Ayran", BirimFiyat = 4.50m });
-            db.Urunler.Add(new Urun() { UrunAd = "Çay", BirimFiyat = 2.99m });
-        }
-        */
+
         private void MasalariOlustur()
         {
             ImageList imageList = new ImageList();
@@ -67,23 +59,17 @@ namespace BilgeKafe.UI
             ListViewItem lvi = lvmMasalar.SelectedItems[0];
             int masaNo = (int)lvi.Tag;
             lvi.ImageKey = "dolu";
-            //Tıklanan masaya ait vaesrsa siparişi bul
             Siparis siparis = db.AktifSiparisler.FirstOrDefault(x => x.MasaNo == masaNo);
-            //siparis oluşturulmadıysa o masanın
             if (siparis == null)
             {
                 siparis = new Siparis() { MasaNo = masaNo };
                 db.AktifSiparisler.Add(siparis);
             }
-
             SiparisForm frmSiparis = new SiparisForm(db, siparis);
             frmSiparis.MasaTasindi += FrmSiparis_MasaTasindi;
             frmSiparis.ShowDialog();
             if (siparis.Durum != SiparisDurum.Aktif)
-            {
                 lvi.ImageKey = "bos";
-            }
-
         }
 
         private void FrmSiparis_MasaTasindi(object sender, MasaTasindiEventArgs e)
@@ -94,8 +80,6 @@ namespace BilgeKafe.UI
                     lvi.ImageKey = "bos";
                 if ((int)lvi.Tag == e.YeniMasaNo)
                     lvi.ImageKey = "dolu";
-
-
             }
         }
 
@@ -107,7 +91,6 @@ namespace BilgeKafe.UI
         private void tsmiGecmisSiparisler_Click(object sender, EventArgs e)
         {
             new GecmisSiparislerForm(db).ShowDialog();
-
         }
 
         private void AnaForm_FormClosing(object sender, FormClosingEventArgs e)

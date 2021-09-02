@@ -19,39 +19,23 @@ namespace BilgeKafe.UI
         private readonly BindingList<SiparisDetay> blSiparisDetaylar;
         public SiparisForm(KafeVeri db, Siparis siparis)
         {
-            this.db = db;//contructor ve propertyde aynı isim verildiğii için this le eşitleme yapılıyor.
+            this.db = db;
             this.siparis = siparis;
             blSiparisDetaylar = new BindingList<SiparisDetay>(siparis.SiparisDetaylar);
             blSiparisDetaylar.ListChanged += BlSiparisDetaylar_ListChanged;
             InitializeComponent();
-            dgwSiparisDetaylari.AutoGenerateColumns = false;//otomatik sütun oluşturmayı kapattı.
+            dgwSiparisDetaylari.AutoGenerateColumns = false;
             dgwSiparisDetaylari.DataSource = blSiparisDetaylar;
             UrunleriListele();
             MasaNoyuGunceller();
             MasaNolariListele();
             blSiparisDetaylar.ResetBindings();
-
         }
 
         private void MasaNolariListele()
         {
-            //cboMasaNo.Items.Clear();
-            /*
-            for (int i = 0; i <=db.MasaAdet; i++)
-            {
-                if (!db.AktifSiparisler.Any(x => x.MasaNo == i))
-                {
-                    cboMasaNo.Items.Add(i);
-                }
-
-            }
-           */
-            
-            cboMasaNo.DataSource = Enumerable.Range(1, 20).Where(i=> !db.AktifSiparisler.Any(s=>s.MasaNo==i)).ToList();
-
+            cboMasaNo.DataSource = Enumerable.Range(1, db.MasaAdet).Where(i => !db.AktifSiparisler.Any(s => s.MasaNo == i)).ToList();
         }
-
-        //BindingList üzerinde değişiklik yapıldığında tetiklenir
         private void BlSiparisDetaylar_ListChanged(object sender, ListChangedEventArgs e)
         {
             OdemeTutariniGuncelle();
@@ -71,14 +55,12 @@ namespace BilgeKafe.UI
         {
             Text = $"Masa {siparis.MasaNo} Açılış Zamanı {siparis.AcilisZamani}";
             lblMasaNo.Text = $"{siparis.MasaNo:00}";
-
         }
 
         private void btnDetayEkle_Click(object sender, EventArgs e)
         {
             Urun urun = (Urun)cboUrun.SelectedItem;
             int adet = (int)nudAdet.Value;
-
 
             if (urun == null)
             {
@@ -88,26 +70,24 @@ namespace BilgeKafe.UI
             SiparisDetay sd = new SiparisDetay()
             {
                 UrunAd = urun.UrunAd,
-                BirimFiyati=urun.BirimFiyat,
-                Adet=adet
+                BirimFiyati = urun.BirimFiyat,
+                Adet = adet
             };
             blSiparisDetaylar.Add(sd);
-            
+
         }
 
         private void btnAnasayfayaDon_Click(object sender, EventArgs e)
         {
             Close();
-            
         }
 
         private void btnOdemeAl_Click(object sender, EventArgs e)
         {
-            DialogResult dr = MessageBox.Show($"{siparis.ToplamTutarTL} tutarı tahsil edildiyse siparişi kapatılacaktır. Onaylıyor musunuz?","Ödeme Onayı", MessageBoxButtons.YesNo,MessageBoxIcon.Question,MessageBoxDefaultButton.Button1);
-            if (dr==DialogResult.Yes)
+            DialogResult dr = MessageBox.Show($"{siparis.ToplamTutarTL} tutarı tahsil edildiyse siparişi kapatılacaktır. Onaylıyor musunuz?", "Ödeme Onayı", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+            if (dr == DialogResult.Yes)
             {
                 SiparisiKapat(SiparisDurum.Odendi);
-
             }
         }
 
@@ -117,7 +97,6 @@ namespace BilgeKafe.UI
             if (dr == DialogResult.Yes)
             {
                 SiparisiKapat(SiparisDurum.Iptal);
-
             }
         }
         private void SiparisiKapat(SiparisDurum durum)
@@ -128,13 +107,12 @@ namespace BilgeKafe.UI
             db.AktifSiparisler.Remove(siparis);
             db.GecmisSiparisler.Add(siparis);
             Close();
-
         }
 
         private void btnMasaTasi_Click(object sender, EventArgs e)
         {
             int eskiMasaNo = siparis.MasaNo;
-            int yeniMasaNo = (int)cboMasaNo.SelectedItem;            
+            int yeniMasaNo = (int)cboMasaNo.SelectedItem;
             siparis.MasaNo = yeniMasaNo;
             MasaNoyuGunceller();
             MasaNolariListele();
