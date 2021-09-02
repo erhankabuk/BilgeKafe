@@ -31,22 +31,20 @@ namespace BilgeKafe.UI
             {
                 string json = File.ReadAllText("veri.json");//Diskten okuma
                 db = JsonConvert.DeserializeObject<KafeVeri>(json);//Deserialization
-
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
-
+        /*
         private void OrnekUrunleriOlustur()
         {
             db.Urunler.Add(new Urun() { UrunAd = "Kola", BirimFiyat = 5.99m });
             db.Urunler.Add(new Urun() { UrunAd = "Ayran", BirimFiyat = 4.50m });
             db.Urunler.Add(new Urun() { UrunAd = "Çay", BirimFiyat = 2.99m });
         }
-
+        */
         private void MasalariOlustur()
         {
             ImageList imageList = new ImageList();
@@ -79,12 +77,26 @@ namespace BilgeKafe.UI
             }
 
             SiparisForm frmSiparis = new SiparisForm(db, siparis);
+            frmSiparis.MasaTasindi += FrmSiparis_MasaTasindi;
             frmSiparis.ShowDialog();
             if (siparis.Durum != SiparisDurum.Aktif)
             {
-                lvi.ImageKey = "bos";//15:14 saatinde anlatıldı oradan bak
+                lvi.ImageKey = "bos";
             }
 
+        }
+
+        private void FrmSiparis_MasaTasindi(object sender, MasaTasindiEventArgs e)
+        {
+            foreach (ListViewItem lvi in lvmMasalar.Items)
+            {
+                if ((int)lvi.Tag == e.EskiMasaNo)
+                    lvi.ImageKey = "bos";
+                if ((int)lvi.Tag == e.YeniMasaNo)
+                    lvi.ImageKey = "dolu";
+
+
+            }
         }
 
         private void tsmiUrunler_Click(object sender, EventArgs e)

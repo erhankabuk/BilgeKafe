@@ -50,7 +50,6 @@ namespace BilgeKafe.UI
                 urun.UrunAd = ad;
                 urun.BirimFiyat = birimFiyat;
                 blUrunler.ResetBindings();
-
             }
             FormuResetle();
 
@@ -72,6 +71,7 @@ namespace BilgeKafe.UI
         {
             if (dgvUrunler.SelectedRows.Count == 0)
             {
+                MessageBox.Show("Düzenlenecek ürünü seçiniz...");
                 return;
             }
             DataGridViewRow satir = dgvUrunler.SelectedRows[0];
@@ -89,7 +89,7 @@ namespace BilgeKafe.UI
         {
             if (btnIptal.Text == "SİL")
             {
-                //txtUrunAd.Focus();
+                
                 DialogResult dr = MessageBox.Show($"Seçili ürün silinecektir. Onaylıyor musunuz?", "Silme Onayı", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
                 if (dr == DialogResult.Yes)
                 {

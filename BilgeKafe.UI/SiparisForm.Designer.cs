@@ -34,7 +34,7 @@ namespace BilgeKafe.UI
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.cboUrun = new System.Windows.Forms.ComboBox();
-            this.cmbMasaNo = new System.Windows.Forms.ComboBox();
+            this.cboMasaNo = new System.Windows.Forms.ComboBox();
             this.nudAdet = new System.Windows.Forms.NumericUpDown();
             this.btnDetayEkle = new System.Windows.Forms.Button();
             this.btnMasaTasi = new System.Windows.Forms.Button();
@@ -94,16 +94,16 @@ namespace BilgeKafe.UI
             this.cboUrun.Size = new System.Drawing.Size(301, 37);
             this.cboUrun.TabIndex = 3;
             // 
-            // cmbMasaNo
+            // cboMasaNo
             // 
-            this.cmbMasaNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmbMasaNo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbMasaNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.cmbMasaNo.FormattingEnabled = true;
-            this.cmbMasaNo.Location = new System.Drawing.Point(608, 48);
-            this.cmbMasaNo.Name = "cmbMasaNo";
-            this.cmbMasaNo.Size = new System.Drawing.Size(110, 37);
-            this.cmbMasaNo.TabIndex = 4;
+            this.cboMasaNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboMasaNo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboMasaNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cboMasaNo.FormattingEnabled = true;
+            this.cboMasaNo.Location = new System.Drawing.Point(608, 48);
+            this.cboMasaNo.Name = "cboMasaNo";
+            this.cboMasaNo.Size = new System.Drawing.Size(110, 37);
+            this.cboMasaNo.TabIndex = 4;
             // 
             // nudAdet
             // 
@@ -144,6 +144,7 @@ namespace BilgeKafe.UI
             this.btnMasaTasi.TabIndex = 7;
             this.btnMasaTasi.Text = "TAŞI";
             this.btnMasaTasi.UseVisualStyleBackColor = true;
+            this.btnMasaTasi.Click += new System.EventHandler(this.btnMasaTasi_Click);
             // 
             // dgwSiparisDetaylari
             // 
@@ -296,12 +297,13 @@ namespace BilgeKafe.UI
             this.Controls.Add(this.btnMasaTasi);
             this.Controls.Add(this.btnDetayEkle);
             this.Controls.Add(this.nudAdet);
-            this.Controls.Add(this.cmbMasaNo);
+            this.Controls.Add(this.cboMasaNo);
             this.Controls.Add(this.cboUrun);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "SiparisForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Masa 3";
             ((System.ComponentModel.ISupportInitialize)(this.nudAdet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgwSiparisDetaylari)).EndInit();
@@ -316,7 +318,7 @@ namespace BilgeKafe.UI
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cboUrun;
-        private System.Windows.Forms.ComboBox cmbMasaNo;
+        private System.Windows.Forms.ComboBox cboMasaNo;
         private System.Windows.Forms.NumericUpDown nudAdet;
         private System.Windows.Forms.Button btnDetayEkle;
         private System.Windows.Forms.Button btnMasaTasi;
