@@ -19,22 +19,8 @@ namespace BilgeKafe.UI
         KafeVeri db = new KafeVeri();
         public AnaForm()
         {
-            VerileriOku();
             InitializeComponent();
             MasalariOlustur();
-        }
-
-        private void VerileriOku()
-        {
-            try
-            {
-                string json = File.ReadAllText("veri.json");//Diskten okuma
-                db = JsonConvert.DeserializeObject<KafeVeri>(json);//Deserialization
-            }
-            catch (Exception)
-            {
-                throw;
-            }
         }
 
         private void MasalariOlustur()
@@ -49,7 +35,7 @@ namespace BilgeKafe.UI
             {
                 ListViewItem lvi = new ListViewItem($"Masa {i}");
                 lvi.Tag = i;
-                lvi.ImageKey = db.AktifSiparisler.Any(s => s.MasaNo == i) ? "dolu" : "bos";
+                lvi.ImageKey = db.Siparisler.Any(s => s.MasaNo == i && s.Durum == SiparisDurum.Aktif) ? "dolu" : "bos";
                 lvmMasalar.Items.Add(lvi);
             }
         }
@@ -59,11 +45,11 @@ namespace BilgeKafe.UI
             ListViewItem lvi = lvmMasalar.SelectedItems[0];
             int masaNo = (int)lvi.Tag;
             lvi.ImageKey = "dolu";
-            Siparis siparis = db.AktifSiparisler.FirstOrDefault(x => x.MasaNo == masaNo);
+            Siparis siparis = db.Siparisler.FirstOrDefault(x => x.MasaNo == masaNo && x.Durum == SiparisDurum.Aktif);
             if (siparis == null)
             {
                 siparis = new Siparis() { MasaNo = masaNo };
-                db.AktifSiparisler.Add(siparis);
+                db.Siparisler.Add(siparis);
             }
             SiparisForm frmSiparis = new SiparisForm(db, siparis);
             frmSiparis.MasaTasindi += FrmSiparis_MasaTasindi;
@@ -93,10 +79,6 @@ namespace BilgeKafe.UI
             new GecmisSiparislerForm(db).ShowDialog();
         }
 
-        private void AnaForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            string json = JsonConvert.SerializeObject(db);//Serialization
-            File.WriteAllText("veri.json", json);//diske yazılması.
-        }
+
     }
 }
